@@ -1,2 +1,2 @@
 runtime: php83
-entrypoint: serve index.php
+entrypoint: serve login.php
