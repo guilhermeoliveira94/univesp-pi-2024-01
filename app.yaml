@@ -1,6 +1,20 @@
 runtime: php83
 entrypoint: serve login.php
+
 handlers:
-- url: /(.*\.(css|jpg|png|js|ico))
-  static_files: \1
-  upload: .*\.(css|jpg|png|js|ico)$
+# Serve images as static resources.
+- url: /img
+  static_dir: img
+
+# Serve CSS file as a static resource.
+- url: /(style\.css)
+  static_files: style.css
+  upload: style.css
+
+# Serve PHP scripts.
+- url: /(.+\.php)$
+  script: \1
+
+# Catch-all handler to serve a PHP script for every URL
+- url: /.*
+  script: index.php
