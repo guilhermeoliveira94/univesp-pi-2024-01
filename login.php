@@ -27,17 +27,26 @@
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
 
-    $results = '';
+    $tableHTML = '<table border="1"><tr><th>ID</th><th>Measurement</th><th>Date Logged</th><th>Date Added</th></tr>';
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {
-            $results .= print_r($row, true) . "<br>";
+            $dateLogged = $row['dl']->format('Y-m-d'); // Ajuste conforme o nome real das colunas
+            $dateAdded = $row['da']->format('Y-m-d');
+            $tableHTML .= sprintf(
+                '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>',
+                htmlspecialchars($row['id']),
+                htmlspecialchars($row['me']),
+                htmlspecialchars($dateLogged),
+                htmlspecialchars($dateAdded)
+            );
         }
+        $tableHTML .= '</table>';
     } else {
-        $results = 'Query Failed';
+        $tableHTML = '<p>Query Failed</p>';
     }
 
-    $body='<!DOCTYPE html>
+    $body = '<!DOCTYPE html>
     <html>
         <head>
             <meta charset="UTF-8">
@@ -47,7 +56,7 @@
         </head>
         <body>';
 
-    $body.='
+    $body .= '
         <script>
             function envialog(){
                 document.FenviaLog.submit();
@@ -64,14 +73,14 @@
             <p class="p" style="margin-top:55px; color:blue;"><b>login:<b></p>
             <input style="margin-top:50px;" name="us">
             <p class="p" style="margin-top:95px; color:blue;"><b>password:<b></p>
-            <input style="margin-top:90px;;" type="password" name="pw">
-            <button class="btn" style="left:40%; margin-top:130px; width:200px; height:40px; " onclick="envialog()">ACESSAR</button>
-            <p class="p" style="margin-top:185px; color:gray;">'.$message.'</p>
+            <input style="margin-top:90px;" type="password" name="pw">
+            <button class="btn" style="left:40%; margin-top:130px; width:200px; height:40px;" onclick="envialog()">ACESSAR</button>
+            <p class="p" style="margin-top:185px; color:gray;"></p>
         </div>
         </form>
-        <div>'.$results.'</div>
+        <div>'.$tableHTML.'</div>
     ';
-    $body.='
+    $body .= '
         </body>
     </html>
     ';
