@@ -43,7 +43,7 @@
             <meta charset="UTF-8">
             <link rel="stylesheet" href="style.css">
             <link rel="icon" type="image/png" href="img/iot.png" />
-            <title>Projeto Intergrador III</title>
+            <title>CLOUD BUILD</title>
         </head>
         <body>';
 
