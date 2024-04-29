@@ -1,4 +1,5 @@
 runtime: php83
+entrypoint: serve login.php
 handlers:
 - url: /(.*\.(css|jpg|png|js|ico))
   static_files: \1
