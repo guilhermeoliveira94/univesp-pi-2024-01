@@ -28,7 +28,14 @@ $body='<!DOCTYPE html>
             </style>
         </head>
         <body>
-        <script>
+        ';
+
+
+    if(isset($_POST["us"]) and isset($_POST["pw"])){	
+        $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
+        if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f'){
+	$home.='
+ 	<script>
         function sair(){
             if(confirm("DESEJA REALMENTE SAIR?")){
                 document.fsair.submit();
@@ -42,12 +49,8 @@ $body='<!DOCTYPE html>
 	    <form name="fsair" method="post" action="login.php">
      	    <input type="hidden" name="sair" value="0">
             <img class="search" src="img/exit.png" onclick="sair()">
-        </div></form>';
-
-
-    if(isset($_POST["us"]) and isset($_POST["pw"])){
-        $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
-        if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f'){
+        </div></form>
+	';
                 session_start();
                 $_SESSION["integrador"]=md5($li["id"]);
                 $_SESSION["no"]=$li["no"];
