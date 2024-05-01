@@ -36,11 +36,12 @@ require 'vendor/autoload.php';
     $queryResults = $bigQuery->runQuery($queryJobConfig);
     $results='';
     $r = '<table width="100%" align="center">';
+            $i=0;
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {            
             $results .= print_r($row, true);
-            $r .= '<tr><td>0==>'.$results[0].'</td></tr>';
+            $r .= '<tr><td><b>'.$i++.'<b>==>'.$results.'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
