@@ -49,7 +49,7 @@ require 'vendor/autoload.php';
         $results = 'Query Failed';
     }
     $r.='</table>';
-    $body.='<div>teste_0 '.$a[0].'</div>';
+    $body.='<div><b style="color:red">teste_0</b> '.$a[0].'</div>';
             //termino da consulta ao BD
             
             }            
