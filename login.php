@@ -60,7 +60,7 @@
         <div class="dcenter">
             <p class="p" style="margin-top:55px; color:blue;"><b>login:<b></p>
             <input style="margin-top:50px;" name="us">
-            <p class="p" style="margin-top:95px; color:blue;"><b>senha:<b></p>
+            <p class="p" style="margin-top:95px; color:blue;"><b>password:<b></p>
             <input style="margin-top:90px;;" type="password" name="pw">
             <button class="btn" style="left:40%; margin-top:130px; width:200px; height:40px; " onclick="envialog()">ACESSAR</button>
             <p class="p" style="margin-top:185px; color:gray;">'.$message.'</p>
