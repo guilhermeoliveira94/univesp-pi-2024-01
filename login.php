@@ -53,8 +53,8 @@ $body='<!DOCTYPE html>
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {    
-            $results .= print_r($row);
-            $results .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$results.'</td></tr>';
+            //$results .= print_r($row);
+            $results .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$row.'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
