@@ -9,7 +9,7 @@
                 $_SESSION["integrador"]=md5($li["id"]);
                 $_SESSION["no"]=$li["no"];
                 $_SESSION["link"]=0;
-                echo '<script>location.href="index.php"</script>';
+                echo 'LOGIN EXECUTADO COM SUCESSO!"</script>';
             }
             
         } 
