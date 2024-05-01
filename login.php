@@ -40,7 +40,7 @@ require 'vendor/autoload.php';
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {       
-            $results .= print_r($row, true);
+            $results .= print_r($row);
             $r .= '<tr><td><b>'.$i++.'<b>==>'.$results.'</td></tr>';
         }
     } else {
