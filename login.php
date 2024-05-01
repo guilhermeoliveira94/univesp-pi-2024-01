@@ -35,11 +35,13 @@ require 'vendor/autoload.php';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
     $results='';
+            $a=array();
     $r = '<table width="100%" align="center">';
             $i=0;
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {       
+            array_push($a,$row);
             $results .= print_r($row);
             $r .= '<tr><td><b>'.$i++.'<b>==>'.$results.'</td></tr>';
         }
@@ -47,7 +49,7 @@ require 'vendor/autoload.php';
         $results = 'Query Failed';
     }
     $r.='</table>';
-    $body.='<div>'.$r.'</div>';
+    $body.='<div>'.$a.'</div>';
             //termino da consulta ao BD
             
             }            
