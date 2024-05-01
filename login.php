@@ -1,5 +1,6 @@
 <?php
-    require 'vendor/autoload.php';
+$body='';
+require 'vendor/autoload.php';
     use Google\Cloud\BigQuery\BigQueryClient;
 
     if(isset($_POST["us"]) and isset($_POST["pw"])){
@@ -9,13 +10,9 @@
                 $_SESSION["integrador"]=md5($li["id"]);
                 $_SESSION["no"]=$li["no"];
                 $_SESSION["link"]=0;
-                echo 'LOGIN EXECUTADO COM SUCESSO!"</script>';
-            }
-            
-        } 
 
-    // Inicialize o cliente BigQuery
-    $bigQuery = new BigQueryClient([
+            //inicio da consulta ao BD
+            $bigQuery = new BigQueryClient([
         'projectId' => 'desafio-dataproc-324610'
     ]);
 
@@ -34,7 +31,11 @@
         $results = 'Query Failed';
     }
 
-    $body='<!DOCTYPE html>
+            //termino da consulta ao BD
+            
+            }            
+        } else {
+$body='<!DOCTYPE html>
     <html>
         <head>
             <meta charset="UTF-8">
@@ -72,5 +73,11 @@
         </body>
     </html>
     ';
+    }
+
+    // Inicialize o cliente BigQuery
+    
+
+    
     echo $body;
 ?>
