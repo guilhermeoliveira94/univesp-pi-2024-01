@@ -26,6 +26,15 @@ $body='<!DOCTYPE html>
                   border-radius: 10px;
                 }
             </style>
+	     <script>
+        function sair(){
+            if(confirm("DESEJA REALMENTE SAIR?")){
+                document.fsair.submit();
+					} else {
+		alert("OPERAÇÃO CANCELADA DO SUCESSO!");
+					}
+                }
+        </script>
         </head>
         <body>
         ';
@@ -35,15 +44,6 @@ $body='<!DOCTYPE html>
         $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
         if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f'){
 	$body.='
- 	<script>
-        function sair(){
-            if(confirm("DESEJA REALMENTE SAIR?")){
-                document.fsair.submit();
-					} else {
-		alert("OPERAÇÃO CANCELADA DO SUCESSO!");
-					}
-                }
-        </script>
         <div class="div" style="margin-top:10px; margin-bottom:10px; border:none; border-bottom:2px solid brown; border-top:2px solid brown;">
             <p class="p">Seja bem vinda(o) <b>Projeto INtegrador III</b> ('.$ip.')</p>
 	    <form name="fsair" method="post" action="login.php">
