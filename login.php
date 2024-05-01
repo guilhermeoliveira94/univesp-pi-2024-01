@@ -4,15 +4,15 @@
 
     if(isset($_POST["us"]) and isset($_POST["pw"])){
         $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
-        if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f';){
+        if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f'){
                 session_start();
                 $_SESSION["integrador"]=md5($li["id"]);
                 $_SESSION["no"]=$li["no"];
                 $_SESSION["link"]=0;
+                echo '<script>location.href="index.php"</script>';
             }
-            echo '<script>location.href="index.php"</script>';
+            
         } 
-    }
 
     // Inicialize o cliente BigQuery
     $bigQuery = new BigQueryClient([
