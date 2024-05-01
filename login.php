@@ -22,14 +22,13 @@ $body='<!DOCTYPE html>
                 }
             </style>
 	     <script>
-        function sair(){
-            if(confirm("DESEJA REALMENTE SAIR?")){
-                document.fsair.submit();
-					} else {
-		alert("OPERAÇÃO CANCELADA DO SUCESSO!");
-					}
+        	function saida(){
+            	if(confirm("DESEJA REALMENTE SAIR?")){
+                	document.fsaida.submit();
+		} else {
+			alert("OPERAÇÃO CANCELADA DO SUCESSO!");					}
                 }
-        </script>
+             </script>
         </head>
         <body>
         ';
@@ -38,9 +37,9 @@ if(isset($_SESSION["integrador"])){
 	$body.='
         <div class="div" style="margin-top:10px; margin-bottom:10px; border:none; border-bottom:2px solid brown; border-top:2px solid brown;">
             <p class="p">Seja bem vinda(o) <b>Projeto Integrador III</b> ('.$ip.')</p>
-	    <form name="fsair" method="post" action="login.php">
+	    <form name="fsaida" method="post" action="login.php">
      	    <input type="hidden" name="sair" value="0">
-            <img class="search" src="img/exit.png" onclick="sair()" title="SAIR">
+            <img class="search" src="img/exit.png" onclick="saida()" title="SAIR">
         </div></form>
 	';
                 
@@ -167,6 +166,9 @@ if(isset($_POST["us"]) and isset($_POST["pw"])){
 		$_SESSION["integrador"]=md5($li["id"]);
                 $_SESSION["no"]=$li["no"];
                 $_SESSION["link"]=0;
+		echo '
+  		<script>location.href="login.php";</script>
+    		';
 	}            
         } else {
 
