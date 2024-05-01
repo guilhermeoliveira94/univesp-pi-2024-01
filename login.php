@@ -34,7 +34,7 @@ $body='<!DOCTYPE html>
     if(isset($_POST["us"]) and isset($_POST["pw"])){	
         $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
         if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f'){
-	$home.='
+	$body.='
  	<script>
         function sair(){
             if(confirm("DESEJA REALMENTE SAIR?")){
