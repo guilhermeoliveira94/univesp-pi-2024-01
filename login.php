@@ -57,7 +57,7 @@ $body='<!DOCTYPE html>
         $rows = $queryResults->rows();
         foreach ($rows as $row) {    
             $results = print_r($row["pr"]);
-            $r .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$results.'</td></tr>';
+            $r .= '<tr><td><b style="color:red">'.$i++.'</b>==>'.$results.'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
