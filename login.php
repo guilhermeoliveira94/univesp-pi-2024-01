@@ -3,11 +3,8 @@
     use Google\Cloud\BigQuery\BigQueryClient;
 
     if(isset($_POST["us"]) and isset($_POST["pw"])){
-        $ppw=md5($_POST["pw"]); $pus=$_POST["us"];
-        include("conn.php");
-        $sql=mysqli_query($conn,"select * from login where us='$pus' and pw='$ppw'");
-        if(mysqli_num_rows($sql)==1){
-            while($li=mysqli_fetch_array($sql)){
+        $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
+        if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f';){
                 session_start();
                 $_SESSION["integrador"]=md5($li["id"]);
                 $_SESSION["no"]=$li["no"];
