@@ -29,15 +29,16 @@ require 'vendor/autoload.php';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
 
-    $results = '';
+    $results = '<table width="100%" align="center">';
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {
-            $results .= print_r($row, true) . "<br>";
+            $results .= '<tr><td>'.print_r($row, true).'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
     }
+    results.='</table>';
     $body.='<div>'.$results.'</div>';
             //termino da consulta ao BD
             
