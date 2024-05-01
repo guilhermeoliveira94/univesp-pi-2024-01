@@ -1,13 +1,15 @@
 <?php
 require 'vendor/autoload.php';
 use Google\Cloud\BigQuery\BigQueryClient;
+$ip = $_SERVER["REMOTE_ADDR"];
+header('Content-Type: text/html; charset=utf-8');
 $body='<!DOCTYPE html>
     <html>
         <head>
             <meta charset="UTF-8">
             <link rel="stylesheet" href="style.css">
             <link rel="icon" type="image/png" href="img/iot.png" />
-            <title>CLOUD BUILD</title>
+            <title>PROJETO INTEGRADOR</title>
             <style>
                 table, th, td {
                   border: 1px dashed red;
