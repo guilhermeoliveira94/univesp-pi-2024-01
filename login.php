@@ -39,8 +39,14 @@ require 'vendor/autoload.php';
             $i=0;
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
-        foreach ($rows as $row) {            
-            $results .= print_r($row, true);
+        foreach ($rows as $row) {       
+            $row = $row->getF();
+            $temp = array();
+            foreach ($row as $v) {
+                $temp[]=$->v;
+            }
+            $a = $temp[];
+            $results .= print_r($a);
             $r .= '<tr><td><b>'.$i++.'<b>==>'.$results.'</td></tr>';
         }
     } else {
