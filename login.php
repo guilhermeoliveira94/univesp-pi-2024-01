@@ -53,7 +53,7 @@ $body='<!DOCTYPE html>
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {    
-            $results .= print_r($row);
+            $results .= print_r($row is true);
             $results .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$results.'</td></tr>';
         }
     } else {
