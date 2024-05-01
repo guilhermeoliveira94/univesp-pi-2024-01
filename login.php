@@ -41,15 +41,14 @@ require 'vendor/autoload.php';
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {       
-            array_push($a,$row);
             //$results .= print_r($row);
-            //$r .= '<tr><td><b>'.$i++.'<b>==>'.$results.'</td></tr>';
+            $r .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$rows.'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
     }
     $r.='</table>';
-    $body.='<div><b style="color:red">teste_0 </b> '.$a.'</div>';
+    $body.='<div><b>teste_1 </b> '.$r.'</div>';
             //termino da consulta ao BD
             
             }            
