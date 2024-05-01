@@ -39,7 +39,7 @@ require 'vendor/autoload.php';
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {
-            $results .= '<tr><td>'.print_r($row, true).'</td></tr>';
+            $results .= '<tr><td>'.print_r($row[5], true).'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
