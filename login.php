@@ -34,18 +34,19 @@ require 'vendor/autoload.php';
     $query = 'SELECT * FROM `desafio-dataproc-324610.projetointegrador.consumo` LIMIT 10';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
-
-    $results = '<table width="100%" align="center">';
+    $results='';
+    $r = '<table width="100%" align="center">';
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
-        foreach ($rows as $row) {
-            $results .= '<tr><td>0==>'.print_r($row[0], true).'</td></tr>';
+        foreach ($rows as $row) {            
+            $results .= print_r($row, true);
+            $r .= '<tr><td>0==>'.$results[0].'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
     }
-    $results.='</table>';
-    $body.='<div>'.$results.'</div>';
+    $r.='</table>';
+    $body.='<div>'.$r.'</div>';
             //termino da consulta ao BD
             
             }            
