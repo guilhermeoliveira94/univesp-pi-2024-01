@@ -38,7 +38,7 @@ require 'vendor/autoload.php';
     } else {
         $results = 'Query Failed';
     }
-    results.='</table>';
+    $results.='</table>';
     $body.='<div>'.$results.'</div>';
             //termino da consulta ao BD
             
