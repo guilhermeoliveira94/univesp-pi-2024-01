@@ -6,6 +6,12 @@ $body='<!DOCTYPE html>
             <link rel="stylesheet" href="style.css">
             <link rel="icon" type="image/png" href="img/iot.png" />
             <title>CLOUD BUILD</title>
+            <style>
+                table, th, td {
+                  border: 1px dashed red;
+                  border-radius: 10px;
+                }
+            </style>
         </head>
         <body>';
 require 'vendor/autoload.php';
