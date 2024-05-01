@@ -45,7 +45,7 @@ $body='<!DOCTYPE html>
     ]);
 
     // Faça uma consulta ao BigQuery
-    $query = 'SELECT pr FROM `desafio-dataproc-324610.projetointegrador.consumo` LIMIT 10';
+    $query = 'SELECT pr FROM `desafio-dataproc-324610.projetointegrador.consumo`';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
     $results = '<table width="100%" align="center">';
