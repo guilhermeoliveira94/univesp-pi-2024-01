@@ -48,7 +48,7 @@ $body='<!DOCTYPE html>
             <p class="p">Seja bem vinda(o) <b>Projeto INtegrador III</b> ('.$ip.')</p>
 	    <form name="fsair" method="post" action="login.php">
      	    <input type="hidden" name="sair" value="0">
-            <img class="search" src="img/exit.png" onclick="sair()">
+            <img class="search" src="img/exit.png" onclick="sair()" title="SAIR">
         </div></form>
 	';
                 session_start();
