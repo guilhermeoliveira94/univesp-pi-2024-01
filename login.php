@@ -45,7 +45,7 @@ $body='<!DOCTYPE html>
     ]);
 
     // Faça uma consulta ao BigQuery
-    $query = 'SELECT * FROM `desafio-dataproc-324610.projetointegrador.consumo` LIMIT 10';
+    $query = 'SELECT pr FROM `desafio-dataproc-324610.projetointegrador.consumo` LIMIT 10';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
     $results = '<table width="100%" align="center">';
@@ -53,7 +53,7 @@ $body='<!DOCTYPE html>
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {    
-            $results .= print_r($row is true);
+            $results .= print_r($row);
             $results .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$results.'</td></tr>';
         }
     } else {
