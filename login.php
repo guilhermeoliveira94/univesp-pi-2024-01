@@ -41,8 +41,8 @@ require 'vendor/autoload.php';
     if ($queryResults->isComplete()) {
         $rows = $queryResults->rows();
         foreach ($rows as $row) {       
-            //$results .= print_r($row);
-            $r .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$rows.'</td></tr>';
+            $results .= print_r($row);
+            $r .= '<tr><td><b style="color:red">'.$i++.'<b>==>'.$results.'</td></tr>';
         }
     } else {
         $results = 'Query Failed';
