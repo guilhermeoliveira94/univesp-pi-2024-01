@@ -1,4 +1,14 @@
 <?php
+if(isset($_POST["sair"])){
+    session_start();
+    session_unset();
+    session_destroy();
+    echo '
+    <script>
+        location.href="login.php";
+    </script>
+    ';
+}
 require 'vendor/autoload.php';
 use Google\Cloud\BigQuery\BigQueryClient;
 $ip = $_SERVER["REMOTE_ADDR"];
