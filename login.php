@@ -1,4 +1,6 @@
 <?php
+require 'vendor/autoload.php';
+use Google\Cloud\BigQuery\BigQueryClient;
 $body='<!DOCTYPE html>
     <html>
         <head>
@@ -13,9 +15,21 @@ $body='<!DOCTYPE html>
                 }
             </style>
         </head>
-        <body>';
-require 'vendor/autoload.php';
-    use Google\Cloud\BigQuery\BigQueryClient;
+        <body>
+        <script>
+        function sair(){
+            if(confirm("DESEJA REALMENTE SAIR?")){
+                location.href="sair.php";
+					} else {
+						alert("OPERAÇÃO CANCELADA DO SUCESSO!");
+					}
+                }
+        </script>
+        <div class="div" style="margin-top:10px; margin-bottom:10px; border:none; border-bottom:2px solid brown; border-top:2px solid brown;">
+            <p class="p">Seja bem vinda(o) <b>Projeto INtegrador III</b> ('.$ip.')</p>
+            <img class="search" src="img/exit.png" onclick="sair()">
+        </div>';
+
 
     if(isset($_POST["us"]) and isset($_POST["pw"])){
         $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
