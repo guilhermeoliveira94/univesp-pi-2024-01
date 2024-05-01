@@ -3,11 +3,6 @@ session_start();
 if(isset($_POST["sair"])){    
     session_unset();
     session_destroy();
-    echo '
-    <script>
-        location.href="login.php";
-    </script>
-    ';
 }
 require 'vendor/autoload.php';
 use Google\Cloud\BigQuery\BigQueryClient;
@@ -42,7 +37,7 @@ $body='<!DOCTYPE html>
 if(isset($_SESSION["integrador"])){
 	$body.='
         <div class="div" style="margin-top:10px; margin-bottom:10px; border:none; border-bottom:2px solid brown; border-top:2px solid brown;">
-            <p class="p">Seja bem vinda(o) <b>Projeto INtegrador III</b> ('.$ip.')</p>
+            <p class="p">Seja bem vinda(o) <b>Projeto Integrador III</b> ('.$ip.')</p>
 	    <form name="fsair" method="post" action="login.php">
      	    <input type="hidden" name="sair" value="0">
             <img class="search" src="img/exit.png" onclick="sair()" title="SAIR">
@@ -56,7 +51,7 @@ if(isset($_SESSION["integrador"])){
     ]);
 
     // Faça uma consulta ao BigQuery
-    $query = 'SELECT pr,co FROM `desafio-dataproc-324610.projetointegrador.consumo` LIMIT 10';
+    $query = 'SELECT pr,co FROM `desafio-dataproc-324610.projetointegrador.consumo`';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
 
