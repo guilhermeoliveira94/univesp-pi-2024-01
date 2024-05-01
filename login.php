@@ -1,5 +1,13 @@
 <?php
-$body='';
+$body='<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="style.css">
+            <link rel="icon" type="image/png" href="img/iot.png" />
+            <title>CLOUD BUILD</title>
+        </head>
+        <body>';
 require 'vendor/autoload.php';
     use Google\Cloud\BigQuery\BigQueryClient;
 
@@ -30,20 +38,12 @@ require 'vendor/autoload.php';
     } else {
         $results = 'Query Failed';
     }
-
+    $body.='<div>'.$results.'</div>';
             //termino da consulta ao BD
             
             }            
         } else {
-$body='<!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <link rel="stylesheet" href="style.css">
-            <link rel="icon" type="image/png" href="img/iot.png" />
-            <title>CLOUD BUILD</title>
-        </head>
-        <body>';
+
 
     $body.='
         <script>
@@ -66,18 +66,16 @@ $body='<!DOCTYPE html>
             <button class="btn" style="left:40%; margin-top:130px; width:200px; height:40px; " onclick="envialog()">ACESSAR</button>
             <p class="p" style="margin-top:185px; color:gray;">'.$message.'</p>
         </div>
-        </form>
-        <div>'.$results.'</div>
+        </form>        
     ';
-    $body.='
-        </body>
-    </html>
-    ';
+
     }
 
-    // Inicialize o cliente BigQuery
-    
+ 
 
-    
+       $body.='
+        </body>
+    </html>
+    '; 
     echo $body;
 ?>
