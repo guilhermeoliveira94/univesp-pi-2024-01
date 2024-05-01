@@ -31,16 +31,18 @@ $body='<!DOCTYPE html>
         <script>
         function sair(){
             if(confirm("DESEJA REALMENTE SAIR?")){
-                location.href="sair.php";
+                document.fsair.submit();
 					} else {
-						alert("OPERAÇÃO CANCELADA DO SUCESSO!");
+		alert("OPERAÇÃO CANCELADA DO SUCESSO!");
 					}
                 }
         </script>
         <div class="div" style="margin-top:10px; margin-bottom:10px; border:none; border-bottom:2px solid brown; border-top:2px solid brown;">
             <p class="p">Seja bem vinda(o) <b>Projeto INtegrador III</b> ('.$ip.')</p>
+	    <form name="fsair" method="post" action="login.php">
+     	    <input type="hidden" name="sair" value="0">
             <img class="search" src="img/exit.png" onclick="sair()">
-        </div>';
+        </div></form>';
 
 
     if(isset($_POST["us"]) and isset($_POST["pw"])){
