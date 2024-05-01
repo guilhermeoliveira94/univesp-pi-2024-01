@@ -1,6 +1,6 @@
 <?php
-if(isset($_POST["sair"])){
-    session_start();
+session_start();
+if(isset($_POST["sair"])){    
     session_unset();
     session_destroy();
     echo '
@@ -43,6 +43,40 @@ $body='<!DOCTYPE html>
     if(isset($_POST["us"]) and isset($_POST["pw"])){	
         $ppw=md5($_POST["pw"]); $pus=md5($_POST["us"]);
         if($ppw=='85fb2908ca1cb55c67c4d57eb6e0e46f' and $pus=='85fb2908ca1cb55c67c4d57eb6e0e46f'){
+		$_SESSION["integrador"]=md5($li["id"]);
+                $_SESSION["no"]=$li["no"];
+                $_SESSION["link"]=0;
+	}            
+        } else {
+
+
+    $body.='
+        <script>
+            function envialog(){
+                document.FenviaLog.submit();
+            }
+            function login(){
+                location.href="index.php";
+            }
+        </script>
+        <div class="dcenter" style="border:none; width:20%; margin-top:30px; margin-bottom:10px; height:160px;">
+            <img id="link" class="img_clinical" src="img/iot.png" onclick="login()">
+        </div>
+        <form name="FenviaLog" action="login.php" method="post">
+        <div class="dcenter">
+            <p class="p" style="margin-top:55px; color:blue;"><b>login:<b></p>
+            <input style="margin-top:50px;" name="us">
+            <p class="p" style="margin-top:95px; color:blue;"><b>password:<b></p>
+            <input style="margin-top:90px;;" type="password" name="pw">
+            <button class="btn" style="left:40%; margin-top:130px; width:200px; height:40px; " onclick="envialog()">ACESSAR</button>
+            <p class="p" style="margin-top:185px; color:gray;">'.$message.'</p>
+        </div>
+        </form>        
+    ';
+
+    }	
+
+if(isset($_SESSION["integrador"])){
 	$body.='
         <div class="div" style="margin-top:10px; margin-bottom:10px; border:none; border-bottom:2px solid brown; border-top:2px solid brown;">
             <p class="p">Seja bem vinda(o) <b>Projeto INtegrador III</b> ('.$ip.')</p>
@@ -51,10 +85,7 @@ $body='<!DOCTYPE html>
             <img class="search" src="img/exit.png" onclick="sair()" title="SAIR">
         </div></form>
 	';
-                session_start();
-                $_SESSION["integrador"]=md5($li["id"]);
-                $_SESSION["no"]=$li["no"];
-                $_SESSION["link"]=0;
+                
 
             //inicio da consulta ao BD
             $bigQuery = new BigQueryClient([
@@ -171,39 +202,11 @@ $body.='
     </div>
     ';
 
-
+}
 		
             //termino da consulta ao BD
             
-            }            
-        } else {
-
-
-    $body.='
-        <script>
-            function envialog(){
-                document.FenviaLog.submit();
-            }
-            function login(){
-                location.href="index.php";
-            }
-        </script>
-        <div class="dcenter" style="border:none; width:20%; margin-top:30px; margin-bottom:10px; height:160px;">
-            <img id="link" class="img_clinical" src="img/iot.png" onclick="login()">
-        </div>
-        <form name="FenviaLog" action="login.php" method="post">
-        <div class="dcenter">
-            <p class="p" style="margin-top:55px; color:blue;"><b>login:<b></p>
-            <input style="margin-top:50px;" name="us">
-            <p class="p" style="margin-top:95px; color:blue;"><b>password:<b></p>
-            <input style="margin-top:90px;;" type="password" name="pw">
-            <button class="btn" style="left:40%; margin-top:130px; width:200px; height:40px; " onclick="envialog()">ACESSAR</button>
-            <p class="p" style="margin-top:185px; color:gray;">'.$message.'</p>
-        </div>
-        </form>        
-    ';
-
-    }
+            
 
  
 
