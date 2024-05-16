@@ -74,8 +74,8 @@ $body.='
             <input type="number" name="valor" class="input" value="0" style="margin-top:0; left:150px;">
         </div>
         <div class="div" style="border:none">
-            <p class="p">capacidade total de produção kw/h </p>
-            <input type="number" name="capaci" class="input" value="0" style="margin-top:0; left:150px;" disabled>
+            <p class="p"></p>
+            <input type="hidden" name="capaci" class="input" value="0" style="margin-top:0; left:150px;" disabled>
         </div>
         <div class="div" style="border:none">
             <button class="btn" style="margin-top:0" onclick="envia()">CALCULAR</button>
