@@ -50,7 +50,7 @@ if(isset($_SESSION["integrador"])){
     ]);
 
     // Faça uma consulta ao BigQuery
-    $query = 'SELECT pr,co FROM `desafio-dataproc-324610.projetointegrador.consumo`';
+    $query = 'SELECT pr,co,me FROM `desafio-dataproc-324610.projetointegrador.consumo`';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
 
