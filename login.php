@@ -122,12 +122,12 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
 	$body.='<div class="div" style="border:none">
             <div class="left">
                 <b>referência</b></div>
+	    <div class="left" title="TEMPERATURA MÉDIA REGISTRADA NA CIDADE DE SOROCABA"><b>temp. média</b></div>
             <div class="left"><b>produção</b></div>
             <div class="left"><b>acumulado</b></div>
             <div class="left"><b>consumo</b></div>                        
             <div class="left"><b>acumulado</b></div>	    
-            <div class="left"><b>acum. gerado</b></div>
-	    <div class="left"><b>temp. média</b></div>
+            <div class="left"><b>acum. gerado</b></div>	    
         </div>';	
 	foreach ($queryResults as $row) {
 		$i++;
@@ -135,12 +135,12 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
         $body.='<div class="div" style="border:none">
             <div class="left">
                 '.date("m/Y",strtotime($row["me"])).'</div>
+	    <div class="left">'.$row["temp_media"].'&ordm;C</div>
             <div class="left">'.$row["pr"].' kw/h</div>
             <div class="left">'.$producao.' kw/h</div>
             <div class="left">'.$row["co"].' kw/h</div>                        
             <div class="left">'.$consumo.' kw/h</div>	    
-            <div class="left">R$ '.number_format($valor,2,',','.').'</div>
-	    <div class="left">'.$row["temp_media"].'&ordm;C</div>
+            <div class="left">R$ '.number_format($valor,2,',','.').'</div>	    
         </div>';
 	}
 
