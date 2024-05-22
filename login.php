@@ -97,7 +97,7 @@ $body.='
                     margin-right:2px;
                     border:1px solid brown;
                     height:22px;
-                    width:13%;
+                    width:13.7%;
                     padding-top:3px;
                     text-align:center;
                 }
@@ -125,8 +125,8 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
             <div class="left"><b>produção</b></div>
             <div class="left"><b>acumulado</b></div>
             <div class="left"><b>consumo</b></div>                        
-            <div class="left"><b>acumumulado</b></div>	    
-            <div class="left"><b>desconto acumulado</b></div>
+            <div class="left"><b>acumulado</b></div>	    
+            <div class="left"><b>acum. gerado</b></div>
 	    <div class="left"><b>temp. média</b></div>
         </div>';	
 	foreach ($queryResults as $row) {
@@ -134,12 +134,12 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
         $consumo=$consumo+$row["co"];    $producao=$producao+$row["pr"];  $valor=($producao*$valor_); 
         $body.='<div class="div" style="border:none">
             <div class="left">
-                ref. '.date("m/Y",strtotime($row["me"])).'</div>
-            <div class="left">produção '.$row["pr"].' kw/h</div>
-            <div class="left">acum. '.$producao.' kw/h</div>
-            <div class="left">consumo '.$row["co"].' kw/h</div>                        
-            <div class="left">acum. '.$consumo.' kw/h</div>	    
-            <div class="left">acumulado R$ '.number_format($valor,2,',','.').'</div>
+                '.date("m/Y",strtotime($row["me"])).'</div>
+            <div class="left">'.$row["pr"].' kw/h</div>
+            <div class="left">'.$producao.' kw/h</div>
+            <div class="left">'.$row["co"].' kw/h</div>                        
+            <div class="left">'.$consumo.' kw/h</div>	    
+            <div class="left">R$ '.number_format($valor,2,',','.').'</div>
 	    <div class="left">'.$row["temp_media"].'&ordm;C</div>
         </div>';
 	}
