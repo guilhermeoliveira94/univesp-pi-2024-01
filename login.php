@@ -50,7 +50,7 @@ if(isset($_SESSION["integrador"])){
     ]);
 
     // Faça uma consulta ao BigQuery
-    $query = 'SELECT pr,co,me FROM `desafio-dataproc-324610.projetointegrador.consumo` order by me';
+    $query = 'SELECT pr,co,me,temp_media FROM `desafio-dataproc-324610.projetointegrador.consumo` order by me';
     $queryJobConfig = $bigQuery->query($query);
     $queryResults = $bigQuery->runQuery($queryJobConfig);
 
@@ -97,7 +97,7 @@ $body.='
                     margin-right:2px;
                     border:1px solid brown;
                     height:22px;
-                    width:15%;
+                    width:12%;
                     padding-top:3px;
                     text-align:center;
                 }
@@ -130,6 +130,7 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
             <div class="left">acumulado '.$producao.' kw/h</div>
             <div class="left">consumo '.$row["co"].' kw/h</div>                        
             <div class="left">acumulado '.$consumo.' kw/h</div>
+	    <div class="left">'.$row["tem_media"].'&ordm;C</div>
             <div class="left">acumulado R$ '.number_format($valor,2,',','.').'</div>
         </div>';
 	}
