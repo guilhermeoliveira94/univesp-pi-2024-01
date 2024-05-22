@@ -97,7 +97,7 @@ $body.='
                     margin-right:2px;
                     border:1px solid brown;
                     height:22px;
-                    width:12%;
+                    width:14%;
                     padding-top:3px;
                     text-align:center;
                 }
@@ -127,10 +127,10 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
             <div class="left">
                 ref. '.date("m/Y",strtotime($row["me"])).'</div>
             <div class="left">produção '.$row["pr"].' kw/h</div>
-            <div class="left">acumulado '.$producao.' kw/h</div>
+            <div class="left">acum. '.$producao.' kw/h</div>
             <div class="left">consumo '.$row["co"].' kw/h</div>                        
-            <div class="left">acumulado '.$consumo.' kw/h</div>
-	    <div class="left">'.$row["tem_media"].'&ordm;C</div>
+            <div class="left">acum. '.$consumo.' kw/h</div>
+	    <div class="left">'.$row["temp_media"].'&ordm;C</div>
             <div class="left">acumulado R$ '.number_format($valor,2,',','.').'</div>
         </div>';
 	}
