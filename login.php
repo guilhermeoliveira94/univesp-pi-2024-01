@@ -97,7 +97,7 @@ $body.='
                     margin-right:2px;
                     border:1px solid brown;
                     height:22px;
-                    width:14%;
+                    width:13%;
                     padding-top:3px;
                     text-align:center;
                 }
@@ -119,7 +119,16 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
     $r = '<table width="100%" align="center">';
     $results = '';
     $i=0;
-		
+	$body.='<div class="div" style="border:none">
+            <div class="left">
+                <b>referência</b></div>
+            <div class="left"><b>produção</b></div>
+            <div class="left"><b>acumulado</b></div>
+            <div class="left"><b>consumo</b></div>                        
+            <div class="left"><b>acumumulado</b></div>	    
+            <div class="left"><b>desconto acumulado</b></div>
+	    <div class="left"><b>temp. média</b></div>
+        </div>';	
 	foreach ($queryResults as $row) {
 		$i++;
         $consumo=$consumo+$row["co"];    $producao=$producao+$row["pr"];  $valor=($producao*$valor_); 
@@ -129,9 +138,9 @@ $consumo=0; $producao=0;    $valor=0;   $i=0;
             <div class="left">produção '.$row["pr"].' kw/h</div>
             <div class="left">acum. '.$producao.' kw/h</div>
             <div class="left">consumo '.$row["co"].' kw/h</div>                        
-            <div class="left">acum. '.$consumo.' kw/h</div>
-	    <div class="left">'.$row["temp_media"].'&ordm;C</div>
+            <div class="left">acum. '.$consumo.' kw/h</div>	    
             <div class="left">acumulado R$ '.number_format($valor,2,',','.').'</div>
+	    <div class="left">'.$row["temp_media"].'&ordm;C</div>
         </div>';
 	}
 
